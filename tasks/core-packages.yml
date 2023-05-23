@@ -1,7 +1,7 @@
 - name: "Install system packages"
   become: true
   apt:
-    name: ["unzip", "tree", "ripgrep", "tmux", "fortune-mod", "bat", "exa","chafa","exiftool", "direnv", "stow"]
+    name: ["unzip","flameshot", "python3-pygments", "tree", "ripgrep", "tmux", "fortune-mod", "bat", "exa","chafa","exiftool", "direnv", "stow"]
     state: present
   tags:
     - core-packages

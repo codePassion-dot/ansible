@@ -1,0 +1,21 @@
+- name: "Download Kitty installer script"
+  get_url:
+    url: https://sw.kovidgoyal.net/kitty/installer.sh
+    dest: /tmp/installer.sh
+    mode: '0755'
+  tags:
+    - kitty
+
+- name: "Run Kitty installer script"
+  shell: sh /tmp/installer.sh dest=~/.local/stow
+  args:
+    executable: /bin/sh
+  tags:
+    - kitty
+
+- name: "Stow Kitty application"
+  command: stow -v kitty.app
+  args:
+    chdir: ~/.local/stow
+  tags:
+    - kitty

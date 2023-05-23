@@ -27,3 +27,4 @@
     - include: tasks/nvim.yml
     - include: tasks/docker.yml
     - include: tasks/lazygit.yml
+    - include: tasks/kitty.yml
