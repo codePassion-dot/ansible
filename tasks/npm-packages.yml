@@ -1,0 +1,6 @@
+- name: Install "tldr" node.js package globally.
+  community.general.npm:
+    name: tldr 
+    global: true
+  tags:
+    - npm-packages

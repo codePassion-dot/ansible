@@ -22,7 +22,8 @@
     - include: tasks/gpg.yml
     - include: tasks/core-packages.yml
     - include: tasks/zsh.yml
+    - include: tasks/node.yml
+    - include: tasks/npm-packages.yml
     - include: tasks/nvim.yml
     - include: tasks/docker.yml
-    - include: tasks/node.yml
     - include: tasks/lazygit.yml
