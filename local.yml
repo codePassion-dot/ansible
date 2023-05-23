@@ -1,7 +1,9 @@
 - hosts: localhost
   vars:
-    source_key: "./.ssh/id_ed25519"
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    source_personal_ssh_key: "./.ssh/id_ed25519"
+    dest_personal_ssh_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    source_work_ssh_key: "./.ssh/id_ed25519-melt"
+    dest_work_ssh_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519-melt"
     zsh_custom: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom"
     deb_architecture: {
       "aarch64": "arm64",
@@ -16,6 +18,8 @@
         state: present
   tasks:
     - include: tasks/ssh.yml
+    - include: tasks/ssh-work.yml
+    - include: tasks/gpg.yml
     - include: tasks/core-packages.yml
     - include: tasks/zsh.yml
     - include: tasks/nvim.yml
