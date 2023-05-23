@@ -2,6 +2,10 @@
   vars:
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    deb_architecture: {
+      "aarch64": "arm64",
+      "x86_64": "amd64"
+    }
   pre_tasks:
     - name: Update Apt
       become: true
@@ -9,3 +13,11 @@
         force_apt_get: true
         update_cache: true
         state: present
+  tasks:
+    - include: tasks/ssh.yml
+    - include: tasks/core-packages.yml
+    - include: tasks/zsh.yml
+    - include: tasks/nvim.yml
+    - include: tasks/docker.yml
+    - include: tasks/node.yml
+

@@ -1,0 +1,66 @@
+- name: "Install zsh"
+  become: true
+  apt:
+    name: ['zsh']
+    state: present
+  tags:
+    - zsh
+
+- name: "Change shell to zsh"
+  become: true
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /bin/zsh
+  tags:
+    - zsh
+
+- name: "Download Oh My Zsh install script"
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install_ohmyzsh.sh
+    mode: '0755'
+  tags:
+    - zsh
+
+- name: "Execute Oh My Zsh install script"
+  command:
+    cmd: sh -c "/tmp/install_ohmyzsh.sh"
+  tags:
+    - zsh
+
+- name: Clone zsh-syntax-highlighting plugin 
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ lookup('env', 'ZSH_CUSTOM') | default('~/.oh-my-zsh/custom') }}/plugins/zsh-syntax-highlighting"
+  environment:
+    ZSH_CUSTOM: "{{ lookup('env', 'ZSH_CUSTOM') }}"
+
+- name: Clone fzf-zsh-plugin plugin 
+  git:
+    repo: https://github.com/unixorn/fzf-zsh-plugin.git
+    dest: "{{ lookup('env', 'ZSH_CUSTOM') | default('~/.oh-my-zsh/custom') }}/plugins/fzf-zsh-plugin"
+    depth: 1
+  environment:
+    ZSH_CUSTOM: "{{ lookup('env', 'ZSH_CUSTOM') }}"
+
+- name: Clone forgit plugin 
+  git:
+    repo: https://github.com/wfxr/forgit.git
+    dest: "{{ lookup('env', 'ZSH_CUSTOM') | default('~/.oh-my-zsh/custom') }}/plugins/forgit"
+  environment:
+    ZSH_CUSTOM: "{{ lookup('env', 'ZSH_CUSTOM') }}"
+
+- name: Clone calc plugin 
+  git:
+    repo: https://github.com/arzzen/calc.plugin.zsh.git
+    dest: "{{ lookup('env', 'ZSH_CUSTOM') | default('~/.oh-my-zsh/custom') }}/plugins/calc"
+  environment:
+    ZSH_CUSTOM: "{{ lookup('env', 'ZSH_CUSTOM') }}"
+
+- name: Clone zsh-easy-motion plugin 
+  git:
+    repo: https://github.com/IngoMeyer441/zsh-easy-motion.git
+    dest: "{{ lookup('env', 'ZSH_CUSTOM') | default('~/.oh-my-zsh/custom') }}/plugins/zsh-easy-motion"
+  environment:
+    ZSH_CUSTOM: "{{ lookup('env', 'ZSH_CUSTOM') }}"
+

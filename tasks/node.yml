@@ -1,0 +1,20 @@
+- name: "Download fnm installation script"
+  get_url:
+    url: https://fnm.vercel.app/install
+    dest: /tmp/fnm_install.sh
+    mode: '0755'
+  tags:
+    - node
+
+- name: "Execute fnm installation script"
+  command:
+    cmd: /tmp/fnm_install.sh
+  tags:
+    - node
+
+- name: "Install node lts"
+  shell: "source {{ lookup('env', 'HOME') }}/.zshrc && fnm install lts/hydrogen && fnm default lts/hydrogen"
+  args:
+    executable: /bin/bash
+  tags:
+    - node

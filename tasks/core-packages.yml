@@ -1,0 +1,7 @@
+- name: "Install system packages"
+  become: true
+  apt:
+    name: ["unzip", "tree", "ripgrep", "fzf", "tmux", "fortune-mod", "direnv", "stow"]
+    state: present
+  tags:
+    - core-packages

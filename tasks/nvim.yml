@@ -1,0 +1,19 @@
+- name: "Download Rustup installation script"
+  get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/rustup_install.sh
+    mode: '0755'
+  tags:
+    - nvim
+
+- name: "Run Rustup installer"
+  command: /tmp/rustup_install.sh -y
+  tags:
+    - nvim
+
+- name: "Install latest neovim version"
+  shell:
+    cmd: "source {{ lookup('env', 'HOME') }}/.cargo/env && cargo install bob-nvim && bob install latest && bob use latest"
+    executable: /bin/bash
+  tags:
+    - nvim
