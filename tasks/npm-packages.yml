@@ -1,6 +1,6 @@
 - name: Install "tldr" node.js package globally.
   community.general.npm:
-    name: tldr 
+    name: ["tldr", "yarn"] 
     global: true
   tags:
     - npm-packages
