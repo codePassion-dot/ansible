@@ -1,7 +1,33 @@
 - name: "Install system packages"
   become: true
   apt:
-    name: ["unzip", "dunst", "libnotify-bin", "scrcpy","flameshot", "python3-pygments", "tree", "ripgrep", "tmux", "fortune-mod", "bat", "exa","chafa","exiftool", "direnv", "stow"]
+    name:
+      [
+        "unzip",
+        "dunst",
+        "gawk",
+        "libnotify-bin",
+        "scrcpy",
+        "flameshot",
+        "python3-pygments",
+        "tree",
+        "ripgrep",
+        "tmux",
+        "fortune-mod",
+        "bat",
+        "exa",
+        "chafa",
+        "exiftool",
+        "direnv",
+        "stow",
+      ]
     state: present
+  tags:
+    - core-packages
+
+- name: "Install nnn dependecies"
+  become: true
+  apt:
+    name: ["pkg-config", "libncursesw5-dev", "libreadline-dev"]
   tags:
     - core-packages
