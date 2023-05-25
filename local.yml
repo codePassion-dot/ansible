@@ -5,10 +5,7 @@
     source_work_ssh_key: "./.ssh/id_ed25519-melt"
     dest_work_ssh_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519-melt"
     zsh_custom: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom"
-    deb_architecture: {
-      "aarch64": "arm64",
-      "x86_64": "amd64"
-    }
+    deb_architecture: { "aarch64": "arm64", "x86_64": "amd64" }
   pre_tasks:
     - name: Update Apt
       become: true
@@ -28,3 +25,4 @@
     - include: tasks/docker.yml
     - include: tasks/lazygit.yml
     - include: tasks/kitty.yml
+    - include: tasks/dotfiles.yml
