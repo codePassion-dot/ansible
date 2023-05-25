@@ -25,4 +25,5 @@
     - include: tasks/docker.yml
     - include: tasks/lazygit.yml
     - include: tasks/kitty.yml
+    - include: tasks/pyenv.yml
     - include: tasks/dotfiles.yml

@@ -1,0 +1,12 @@
+- name: "Download Pyenv installation script"
+  get_url:
+    url: https://pyenv.run
+    dest: /tmp/pyenv_install.sh
+    mode: "0755"
+  tags:
+    - pyenv
+
+- name: "Run Pyenv installation script"
+  shell: /bin/bash /tmp/pyenv_install.sh
+  tags:
+    - pyenv

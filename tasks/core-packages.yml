@@ -1,3 +1,9 @@
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  tags:
+    - core-packages
+
 - name: "Install system packages"
   become: true
   apt:
@@ -30,5 +36,28 @@
   become: true
   apt:
     name: ["pkg-config", "libncursesw5-dev", "libreadline-dev"]
+  tags:
+    - core-packages
+
+- name: "Install pyenv dependecies"
+  apt:
+    name:
+      [
+        build-essential,
+        libssl-dev,
+        zlib1g-dev,
+        libbz2-dev,
+        libreadline-dev,
+        libsqlite3-dev,
+        curl,
+        libncursesw5-dev,
+        xz-utils,
+        tk-dev,
+        libxml2-dev,
+        libxmlsec1-dev,
+        libffi-dev,
+        liblzma-dev,
+      ]
+    state: present
   tags:
     - core-packages
