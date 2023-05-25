@@ -20,6 +20,7 @@
         "exiftool",
         "direnv",
         "stow",
+        "xbindkeys",
       ]
     state: present
   tags:
