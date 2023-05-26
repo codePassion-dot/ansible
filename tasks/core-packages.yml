@@ -11,6 +11,7 @@
       [
         "unzip",
         "git-extras",
+        "xclip",
         "dunst",
         "gawk",
         "libnotify-bin",
