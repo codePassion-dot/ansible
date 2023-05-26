@@ -41,6 +41,13 @@
   tags:
     - core-packages
 
+- name: "Install java runtime"
+  become: true
+  apt:
+    name: "openjdk-11-jdk"
+  tags:
+    - core-packages
+
 - name: "Install pyenv dependecies"
   apt:
     name:
