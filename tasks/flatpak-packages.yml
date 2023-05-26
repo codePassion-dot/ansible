@@ -1,0 +1,52 @@
+- name: "Install Flatpak package"
+  become: true
+  apt:
+    name: flatpak
+    state: present
+  tags:
+    - flatpak
+
+- name: "Add Flathub remote repository"
+  shell: flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  tags:
+    - flatpak
+
+- name: "Install spotify client"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
+
+- name: "Install discord client"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
+
+- name: "Install slack client"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.slack.Slack.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
+
+- name: "Install Android Studio IDE"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.google.AndroidStudio.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
+
+- name: "Install Google Chrome Web Browser"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.google.Chrome.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
