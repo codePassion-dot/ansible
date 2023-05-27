@@ -1,7 +1,7 @@
 - name: "Install zsh"
   become: true
   apt:
-    name: ['zsh']
+    name: ["zsh"]
     state: present
   tags:
     - zsh
@@ -18,7 +18,7 @@
   get_url:
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     dest: /tmp/install_ohmyzsh.sh
-    mode: '0755'
+    mode: "0755"
   tags:
     - zsh
 
@@ -28,16 +28,16 @@
   tags:
     - zsh
 
-- name: Clone zsh-syntax-highlighting plugin 
-  become: true 
+- name: Clone zsh-syntax-highlighting plugin
+  become: true
   git:
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
     dest: "{{ zsh_custom }}/plugins/zsh-syntax-highlighting"
   tags:
     - zsh
 
-- name: Clone fzf-zsh-plugin plugin 
-  become: true 
+- name: Clone fzf-zsh-plugin plugin
+  become: true
   git:
     repo: https://github.com/unixorn/fzf-zsh-plugin.git
     dest: "{{ zsh_custom }}/plugins/fzf-zsh-plugin"
@@ -45,26 +45,34 @@
   tags:
     - zsh
 
-- name: Clone forgit plugin 
-  become: true 
+- name: Clone forgit plugin
+  become: true
   git:
     repo: https://github.com/wfxr/forgit.git
     dest: "{{ zsh_custom }}/plugins/forgit"
   tags:
     - zsh
 
-- name: Clone calc plugin 
-  become: true 
+- name: Clone calc plugin
+  become: true
   git:
     repo: https://github.com/arzzen/calc.plugin.zsh.git
     dest: "{{ zsh_custom }}/plugins/calc"
   tags:
     - zsh
 
-- name: Clone zsh-easy-motion plugin 
-  become: true 
+- name: Clone zsh-easy-motion plugin
+  become: true
   git:
     repo: https://github.com/IngoMeyer441/zsh-easy-motion.git
     dest: "{{ zsh_custom }}/plugins/zsh-easy-motion"
+  tags:
+    - zsh
+
+- name: Clone fzf-tab plugin
+  become: true
+  git:
+    repo: https://github.com/Aloxaf/fzf-tab
+    dest: "{{ zsh_custom }}/plugins/fzf-tab"
   tags:
     - zsh
