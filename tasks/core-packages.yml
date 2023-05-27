@@ -29,6 +29,11 @@
         "direnv",
         "stow",
         "xbindkeys",
+        "autoconf",
+        "automake",
+        "libtool",
+        "libmagickwand-dev",
+        "gtk-doc-tools",
       ]
     state: present
   tags:
