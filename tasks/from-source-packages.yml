@@ -1,0 +1,75 @@
+- name: "Clone nnn file manager"
+  become: true
+  git:
+    repo: https://github.com/jarun/nnn.git
+    dest: "{{ third_parties }}/nnn"
+  tags:
+    - nnn
+    - from-source-packages
+
+- name: "Build and install nnn"
+  shell: make PREFIX="{{ lookup('env', 'HOME') }}/.local/stow/nnn" O_NERD=1 install
+  args:
+    chdir: "{{ third_parties }}/nnn"
+  tags:
+    - nnn
+    - from-source-packages
+
+- name: "Stow nnn application"
+  command: stow -v nnn
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/.local/stow"
+  tags:
+    - nnn
+    - from-source-packages
+
+- name: "Clone chafa repository"
+  git:
+    repo: https://github.com/hpjansson/chafa.git
+    dest: "{{ third_parties }}/chafa"
+    version: master
+    update: yes
+  tags:
+    - chafa
+    - from-source-packages
+
+- name: "Run autogen.sh for chafa"
+  shell: ./autogen.sh
+  args:
+    chdir: "{{ third_parties }}/chafa"
+  tags:
+    - chafa
+    - from-source-packages
+
+- name: "Run configure for chafa"
+  command: ./configure --prefix={{ lookup('env', 'HOME') }}/.local/stow/chafa
+  args:
+    chdir: "{{ third_parties }}/chafa"
+  tags:
+    - chafa
+    - from-source-packages
+
+- name: "Run make for chafa"
+  command: make
+  args:
+    chdir: "{{ third_parties }}/chafa"
+  tags:
+    - chafa
+    - from-source-packages
+
+- name: "Run make install for chafa"
+  command: make install
+  args:
+    chdir: "{{ third_parties }}/chafa"
+  become: true
+  tags:
+    - chafa
+    - from-source-packages
+
+- name: "Stow chafa application"
+  command: stow -v chafa
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/.local/stow"
+  tags:
+    - chafa
+    - from-source-packages
