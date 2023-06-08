@@ -1,0 +1,34 @@
+- name: Install curl
+  apt:
+    name: curl
+    state: present
+  tags:
+    - speedtest-cli
+
+- name: Download packagecloud repository installation script
+  get_url:
+    url: https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh
+    dest: /tmp/packagecloud-install.sh
+    mode: "0755"
+  tags:
+    - speedtest-cli
+
+- name: Run packagecloud repository installation script
+  command: /tmp/packagecloud-install.sh
+  args:
+    creates: /etc/apt/sources.list.d/ookla_speedtest.list
+  tags:
+    - speedtest-cli
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  tags:
+    - speedtest-cli
+
+- name: Install speedtest-cli
+  apt:
+    name: speedtest
+    state: present
+  tags:
+    - speedtest-cli
