@@ -10,6 +10,7 @@
     name:
       [
         "unzip",
+        "picom",
         "pavucontrol",
         "git-extras",
         "xclip",
