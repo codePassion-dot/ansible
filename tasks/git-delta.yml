@@ -1,0 +1,34 @@
+- name: Get latest Lazygit release version
+  get_url:
+    url: "https://api.github.com/repos/dandavison/delta/releases/latest"
+    dest: "/tmp/git-delta_release.json"
+  tags:
+    - git-delta
+
+- name: Extract git-delta version from release JSON
+  set_fact:
+    git_delta_version: "{{ lookup('file', '/tmp/git-delta_release.json') | from_json | json_query('tag_name') | regex_replace('^v', '') }}"
+  tags:
+    - git-delta
+
+- name: Download git-delta release
+  get_url:
+    url: "https://github.com/dandavison/delta/releases/latest/download/git-delta_{{ git_delta_version }}_amd64.deb"
+    dest: "/tmp/git-delta.deb"
+  tags:
+    - git-delta
+
+- name: Remove Any previous git-delta
+  become: true
+  apt:
+    name: git-delta
+    state: absent
+  tags:
+    - git-delta
+
+- name: Install git-delta.deb package
+  become: true
+  apt:
+    deb: /tmp/git-delta.deb
+  tags:
+    - git-delta
