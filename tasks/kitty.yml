@@ -7,6 +7,7 @@
     - kitty
 
 - name: "Run Kitty installer script"
+  become: true
   shell: sh /tmp/installer.sh dest="{{ lookup('env', 'HOME') }}/.local/stow"
   args:
     executable: /bin/sh
