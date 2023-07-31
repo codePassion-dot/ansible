@@ -1,8 +1,7 @@
 - name: Copy .fonts contents
-  become: true
   copy:
     src: fonts/.fonts
-    dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+    dest: "{{ lookup('env', 'HOME') }}"
     mode: 0644
   tags:
     - fonts
