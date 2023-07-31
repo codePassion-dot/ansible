@@ -1,4 +1,5 @@
 - name: Install curl
+  become: true
   apt:
     name: curl
     state: present
@@ -14,6 +15,7 @@
     - speedtest-cli
 
 - name: Run packagecloud repository installation script
+  become: true
   command: /tmp/packagecloud-install.sh
   args:
     creates: /etc/apt/sources.list.d/ookla_speedtest.list
@@ -21,12 +23,14 @@
     - speedtest-cli
 
 - name: Update apt cache
+  become: true
   apt:
     update_cache: yes
   tags:
     - speedtest-cli
 
 - name: Install speedtest-cli
+  become: true
   apt:
     name: speedtest
     state: present
