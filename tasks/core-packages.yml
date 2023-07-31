@@ -11,6 +11,8 @@
     name:
       [
         "unzip",
+        "copyq",
+        "cpu-checker",
         "picom",
         "pavucontrol",
         "git-extras",
@@ -54,6 +56,11 @@
     name: "openjdk-11-jdk"
   tags:
     - core-packages
+
+- name: "instal 'useful' packages"
+  become: true
+  apt:
+    name: ["sl", "neofetch"]
 
 - name: "Install pyenv dependecies"
   become: true

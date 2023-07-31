@@ -1,4 +1,4 @@
-- name: Get latest Lazygit release version
+- name: Get latest git-delta release version
   get_url:
     url: "https://api.github.com/repos/dandavison/delta/releases/latest"
     dest: "/tmp/git-delta_release.json"
