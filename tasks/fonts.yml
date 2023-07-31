@@ -1,0 +1,15 @@
+- name: Copy .fonts contents
+  become: true
+  copy:
+    src: fonts/.fonts
+    dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+    mode: 0644
+  tags:
+    - fonts
+
+- name: erase font cache
+  shell: fc-cache -fv
+  args:
+    executable: /bin/sh
+  tags:
+    - fonts

@@ -30,4 +30,5 @@
     - include: tasks/kitty.yml
     - include: tasks/pyenv.yml
     - include: tasks/flatpak-packages.yml
+    - include: tasks/fonts.yml
     - include: tasks/dotfiles.yml
