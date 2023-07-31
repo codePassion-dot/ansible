@@ -25,6 +25,7 @@
     - from-source-packages
 
 - name: "Clone chafa repository"
+  become: true
   git:
     repo: https://github.com/hpjansson/chafa.git
     dest: "{{ third_parties }}/chafa"
