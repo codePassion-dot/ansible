@@ -36,6 +36,7 @@
     - from-source-packages
 
 - name: "Run autogen.sh for chafa"
+  become: true
   shell: ./autogen.sh
   args:
     chdir: "{{ third_parties }}/chafa"
@@ -44,6 +45,7 @@
     - from-source-packages
 
 - name: "Run configure for chafa"
+  become: true
   command: ./configure --prefix={{ lookup('env', 'HOME') }}/.local/stow/chafa
   args:
     chdir: "{{ third_parties }}/chafa"
@@ -65,7 +67,6 @@
   command: make install
   args:
     chdir: "{{ third_parties }}/chafa"
-  become: true
   tags:
     - chafa
     - from-source-packages
