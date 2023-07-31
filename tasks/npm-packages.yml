@@ -1,6 +1,20 @@
 - name: Install "tldr" node.js package globally.
   community.general.npm:
-    name: ["tldr", "yarn", "eas-cli"]
+    name: "tldr"
+    global: true
+  tags:
+    - npm-packages
+
+- name: Install "yarn" node.js package globally.
+  community.general.npm:
+    name: "yarn"
+    global: true
+  tags:
+    - npm-packages
+
+- name: Install "eas-cli" node.js package globally.
+  community.general.npm:
+    name: "eas-cli"
     global: true
   tags:
     - npm-packages
