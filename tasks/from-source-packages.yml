@@ -8,6 +8,7 @@
     - from-source-packages
 
 - name: "Build and install nnn"
+  become: true
   shell: make PREFIX="{{ lookup('env', 'HOME') }}/.local/stow/nnn" O_NERD=1 install
   args:
     chdir: "{{ third_parties }}/nnn"
@@ -50,6 +51,7 @@
     - from-source-packages
 
 - name: "Run make for chafa"
+  become: true
   command: make
   args:
     chdir: "{{ third_parties }}/chafa"
@@ -58,6 +60,7 @@
     - from-source-packages
 
 - name: "Run make install for chafa"
+  become: true
   command: make install
   args:
     chdir: "{{ third_parties }}/chafa"
