@@ -1,5 +1,4 @@
 - name: "Clone nnn file manager"
-  become: true
   git:
     repo: https://github.com/jarun/nnn.git
     dest: "{{ third_parties }}/nnn"
@@ -25,7 +24,6 @@
     - from-source-packages
 
 - name: "Clone chafa repository"
-  become: true
   git:
     repo: https://github.com/hpjansson/chafa.git
     dest: "{{ third_parties }}/chafa"
@@ -36,7 +34,6 @@
     - from-source-packages
 
 - name: "Run autogen.sh for chafa"
-  become: true
   shell: ./autogen.sh
   args:
     chdir: "{{ third_parties }}/chafa"
@@ -45,7 +42,6 @@
     - from-source-packages
 
 - name: "Run configure for chafa"
-  become: true
   command: ./configure --prefix={{ lookup('env', 'HOME') }}/.local/stow/chafa
   args:
     chdir: "{{ third_parties }}/chafa"
