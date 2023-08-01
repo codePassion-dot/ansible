@@ -72,3 +72,21 @@
     state: present
   tags:
     - docker
+
+- name: Create docker group
+  become: true
+  group:
+    name: docker
+    state: present
+  check_mode: no
+  tags:
+    - docker
+
+- name: Add user to docker group
+  become: true
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    groups: docker
+    append: yes
+  tags:
+    - docker
