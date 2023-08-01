@@ -21,6 +21,7 @@
     - include: tasks/core-packages.yml
     - include: tasks/speedtest.yml
     - include: tasks/git-delta.yml
+    - include: tasks/gh.yml
     - include: tasks/zsh.yml
     - include: tasks/from-source-packages.yml
     - include: tasks/node.yml

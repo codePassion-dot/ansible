@@ -1,0 +1,6 @@
+- name: Copy gh contents
+  copy:
+    src: gh
+    dest: "{{ lookup('env', 'HOME') }}/.config"
+  tags:
+    - gh
