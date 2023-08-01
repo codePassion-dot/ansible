@@ -12,6 +12,7 @@
       [
         "unzip",
         "copyq",
+        "bpytop",
         "cpu-checker",
         "picom",
         "pavucontrol",
