@@ -12,6 +12,7 @@
       [
         "unzip",
         "copyq",
+        "libgirepository1.0-dev",
         "bpytop",
         "cpu-checker",
         "picom",
