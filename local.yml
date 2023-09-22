@@ -32,6 +32,7 @@
     - include: tasks/lazygit.yml
     - include: tasks/kitty.yml
     - include: tasks/pyenv.yml
+    - include: tasks/nordvpn.yml
     - include: tasks/flatpak-packages.yml
     - include: tasks/fonts.yml
     - include: tasks/dotfiles.yml

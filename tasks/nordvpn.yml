@@ -1,0 +1,14 @@
+- name: "Download nordvpn script"
+  get_url:
+    url: https://downloads.nordcdn.com/apps/linux/install.sh
+    dest: /tmp/install_nordvpn.sh
+    mode: "0755"
+  tags:
+    - nordvpn
+
+- name: "Execute nordvpn install script"
+  become: true
+  command:
+    cmd: sh -c "/tmp/install_nordvpn.sh"
+  tags:
+    - nordvpn
