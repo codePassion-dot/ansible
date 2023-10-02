@@ -13,6 +13,7 @@
         "unzip",
         "copyq",
         "libgirepository1.0-dev",
+        "apt-show-versions",
         "bpytop",
         "cpu-checker",
         "picom",
