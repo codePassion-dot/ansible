@@ -1,0 +1,22 @@
+- name: "Install libinput-gestures 'dependencies'"
+  become: true
+  apt:
+    name: ["libinput-tools", "xdotool", "wmctrl"]
+  tags:
+    - libinput-gestures
+
+- name: Clone libinput-gestures repository
+  git:
+    repo: https://github.com/bulletmark/libinput-gestures.git
+    dest: "{{ lookup('env', 'HOME') }}/repos/third_parties"
+  become: true
+  tags:
+    - libinput-gestures
+
+- name: Run libinput-gestures-setup install
+  command: ./libinput-gestures-setup install
+  become: true
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/repos/third_parties"
+  tags:
+    - libinput-gestures

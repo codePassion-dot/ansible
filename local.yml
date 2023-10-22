@@ -29,6 +29,7 @@
     - include: tasks/npm-packages.yml
     - include: tasks/nvim.yml
     - include: tasks/docker.yml
+    - include: tasks/libinput-gestures.yml
     - include: tasks/lazygit.yml
     - include: tasks/kitty.yml
     - include: tasks/pyenv.yml
