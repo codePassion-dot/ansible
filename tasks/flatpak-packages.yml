@@ -19,6 +19,14 @@
   tags:
     - flatpak
 
+- name: "Install obs studio"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.obsproject.Studio.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
+
 - name: "Install discord client"
   flatpak:
     name: https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
