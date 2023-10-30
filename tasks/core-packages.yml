@@ -65,6 +65,11 @@
   apt:
     name: ["sl", "neofetch"]
 
+- name: "install redshift dependecies"
+  become: true
+  apt:
+    name: ["autopoint", "intltool", "libxcb-randr0-dev"]
+
 - name: "Install pyenv dependecies"
   become: true
   apt:

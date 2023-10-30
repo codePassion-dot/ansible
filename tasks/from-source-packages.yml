@@ -23,6 +23,57 @@
     - nnn
     - from-source-packages
 
+- name: "Clone redshift repository"
+  git:
+    repo: https://github.com/jonls/redshift.git
+    dest: "{{ third_parties }}/redshift"
+    version: master
+    update: yes
+  tags:
+    - redshift
+    - from-source-packages
+
+- name: "Run bootstrap script for redshift"
+  shell: ./bootstrap
+  args:
+    chdir: "{{ third_parties }}/redshift"
+  tags:
+    - redshift
+    - from-source-packages
+
+- name: "Run configure script for redshift"
+  shell: ./configure --prefix=$HOME/.local/stow/redshift --enable-randr
+  args:
+    chdir: "{{ third_parties }}/redshift"
+  tags:
+    - redshift
+    - from-source-packages
+
+- name: "Run make for redshift"
+  command: make
+  args:
+    chdir: "{{ third_parties }}/redshift"
+  tags:
+    - redshift
+    - from-source-packages
+
+- name: "Run make install for redshift"
+  become: true
+  command: make install
+  args:
+    chdir: "{{ third_parties }}/redshift"
+  tags:
+    - redshift
+    - from-source-packages
+
+- name: "Stow redshift application"
+  command: stow -v redshift
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/.local/stow"
+  tags:
+    - redshift
+    - from-source-packages
+
 - name: "Clone chafa repository"
   git:
     repo: https://github.com/hpjansson/chafa.git
