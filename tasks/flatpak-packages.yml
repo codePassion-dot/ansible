@@ -19,6 +19,14 @@
   tags:
     - flatpak
 
+- name: "Install tor web-browser client"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.github.micahflee.torbrowser-launcher.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
+
 - name: "Install obs studio"
   flatpak:
     name: https://dl.flathub.org/repo/appstream/com.obsproject.Studio.flatpakref
