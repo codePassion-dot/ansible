@@ -42,7 +42,7 @@
     - from-source-packages
 
 - name: "Run configure script for redshift"
-  shell: ./configure --prefix=$HOME/.local/stow/redshift --enable-randr
+  shell: ./configure --prefix={{ lookup('env', 'HOME') }}/.local/stow/redshift --enable-randr
   args:
     chdir: "{{ third_parties }}/redshift"
   tags:
