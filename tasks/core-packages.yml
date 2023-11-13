@@ -52,6 +52,7 @@
     name: ["pkg-config", "libncursesw5-dev", "libreadline-dev"]
   tags:
     - core-packages
+    - nnn
 
 - name: "Install java runtime"
   become: true
@@ -59,16 +60,22 @@
     name: "openjdk-11-jdk"
   tags:
     - core-packages
+    - java
 
 - name: "instal 'useful' packages"
   become: true
   apt:
     name: ["sl", "neofetch"]
+  tags:
+    - core-packages
 
 - name: "install redshift dependecies"
   become: true
   apt:
     name: ["autopoint", "intltool", "libxcb-randr0-dev"]
+  tags:
+    - core-packages
+    - redshift
 
 - name: "Install pyenv dependecies"
   become: true
@@ -93,3 +100,4 @@
     state: present
   tags:
     - core-packages
+    - pyenv
