@@ -18,6 +18,7 @@
     state: present
   tags:
     - flatpak
+    - spotify
 
 - name: "Install tor web-browser client"
   flatpak:
@@ -26,6 +27,7 @@
     state: present
   tags:
     - flatpak
+    - tor
 
 - name: "Install obs studio"
   flatpak:
@@ -34,6 +36,7 @@
     state: present
   tags:
     - flatpak
+    - obs
 
 - name: "Install discord client"
   flatpak:
@@ -42,6 +45,7 @@
     state: present
   tags:
     - flatpak
+    - discord
 
 - name: "Install slack client"
   flatpak:
@@ -50,6 +54,7 @@
     state: present
   tags:
     - flatpak
+    - slack
 
 - name: "Install Android Studio IDE"
   flatpak:
@@ -58,6 +63,7 @@
     state: present
   tags:
     - flatpak
+    - android-studio
 
 - name: "Install Google Chrome Web Browser"
   flatpak:
@@ -66,3 +72,4 @@
     state: present
   tags:
     - flatpak
+    - chrome
