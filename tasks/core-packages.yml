@@ -77,6 +77,22 @@
     - core-packages
     - redshift
 
+- name: "install qtile dependecies"
+  become: true
+  apt:
+    name:
+      [
+        "xserver-xorg",
+        "xinit",
+        "libpangocairo-1.0-0",
+        "python3-pip",
+        "python3-xcffib",
+        "python3-cairocffi",
+      ]
+  tags:
+    - core-packages
+    - qtile
+
 - name: "Install pyenv dependecies"
   become: true
   apt:
