@@ -9,7 +9,6 @@
   git:
     repo: https://github.com/bulletmark/libinput-gestures.git
     dest: "{{ lookup('env', 'HOME') }}/repos/third_parties"
-  become: true
   tags:
     - libinput-gestures
 

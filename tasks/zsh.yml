@@ -29,7 +29,6 @@
     - zsh
 
 - name: Clone zsh-syntax-highlighting plugin
-  become: true
   git:
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
     dest: "{{ zsh_custom }}/plugins/zsh-syntax-highlighting"
@@ -37,7 +36,6 @@
     - zsh
 
 - name: Clone fzf-zsh-plugin plugin
-  become: true
   git:
     repo: https://github.com/unixorn/fzf-zsh-plugin.git
     dest: "{{ zsh_custom }}/plugins/fzf-zsh-plugin"
@@ -46,7 +44,6 @@
     - zsh
 
 - name: Clone forgit plugin
-  become: true
   git:
     repo: https://github.com/wfxr/forgit.git
     dest: "{{ zsh_custom }}/plugins/forgit"
@@ -54,7 +51,6 @@
     - zsh
 
 - name: Clone calc plugin
-  become: true
   git:
     repo: https://github.com/arzzen/calc.plugin.zsh.git
     dest: "{{ zsh_custom }}/plugins/calc"
@@ -62,7 +58,6 @@
     - zsh
 
 - name: Clone zsh-easy-motion plugin
-  become: true
   git:
     repo: https://github.com/IngoMeyer441/zsh-easy-motion.git
     dest: "{{ zsh_custom }}/plugins/zsh-easy-motion"
@@ -70,7 +65,6 @@
     - zsh
 
 - name: Clone fzf-tab plugin
-  become: true
   git:
     repo: https://github.com/Aloxaf/fzf-tab
     dest: "{{ zsh_custom }}/plugins/fzf-tab"
