@@ -4,3 +4,34 @@
     dest: "{{ lookup('env', 'HOME') }}/.config"
   tags:
     - gh
+
+- name: Ensure curl is installed
+  become: true
+  apt:
+    name: curl
+    state: present
+
+- name: Download GitHub CLI GPG key
+  become: true
+  get_url:
+    url: "https://cli.github.com/packages/githubcli-archive-keyring.gpg"
+    dest: "/usr/share/keyrings/githubcli-archive-keyring.gpg"
+    mode: "0644"
+
+- name: Add GitHub CLI repository to sources list
+  become: true
+  lineinfile:
+    path: "/etc/apt/sources.list.d/github-cli.list"
+    line: "deb [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main"
+    create: yes
+
+- name: Update apt repositories
+  become: true
+  apt:
+    update_cache: yes
+
+- name: Install GitHub CLI
+  become: true
+  apt:
+    name: gh
+    state: present
