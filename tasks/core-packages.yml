@@ -33,6 +33,7 @@
         "bat",
         "chafa",
         "exiftool",
+        "feh",
         "direnv",
         "stow",
         "xbindkeys",
@@ -65,7 +66,7 @@
 - name: "instal 'useful' packages"
   become: true
   apt:
-    name: ["sl", "neofetch"]
+    name: ["sl", "neofetch", "lm-sensors"]
   tags:
     - core-packages
 
