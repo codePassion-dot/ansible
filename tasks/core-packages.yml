@@ -63,10 +63,10 @@
     - core-packages
     - java
 
-- name: "instal 'useful' packages"
+- name: "install 'useful' packages"
   become: true
   apt:
-    name: ["sl", "neofetch", "lm-sensors"]
+    name: ["sl", "neofetch", "lm-sensors", "rofi"]
   tags:
     - core-packages
 
