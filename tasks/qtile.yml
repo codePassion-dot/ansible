@@ -7,3 +7,11 @@
   pip:
     name: qtile
     state: present
+
+- name: Copy qtile desktop thing
+  become: true
+  copy:
+    src: qtile/qtile.desktop
+    dest: "/usr/share/xsessions"
+  tags:
+    - gh
