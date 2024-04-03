@@ -20,6 +20,15 @@
     - flatpak
     - spotify
 
+- name: "Install dbeaver client"
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/io.dbeaver.DBeaverCommunity.flatpakref
+    method: user
+    state: present
+  tags:
+    - flatpak
+    - dbeaver
+
 - name: "Install tor web-browser client"
   flatpak:
     name: https://dl.flathub.org/repo/appstream/com.github.micahflee.torbrowser-launcher.flatpakref
