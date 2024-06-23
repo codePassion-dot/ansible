@@ -15,7 +15,7 @@
         update_cache: true
         state: present
   tasks:
-    - import_tasks: pop-os/ssh.yml
+    - import_tasks: common/ssh.yml
     - import_tasks: pop-os/ssh-work.yml
     - import_tasks: pop-os/gpg.yml
     - import_tasks: pop-os/core-packages.yml
