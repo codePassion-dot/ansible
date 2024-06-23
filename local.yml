@@ -29,7 +29,7 @@
     - import_tasks: common/nnn.yml
     - import_tasks: pop-os/node.yml
     - import_tasks: pop-os/npm-packages.yml
-    - import_tasks: pop-os/nvim.yml
+    - import_tasks: common/nvim.yml
     - import_tasks: pop-os/docker.yml
     - import_tasks: pop-os/libinput-gestures.yml
     - import_tasks: pop-os/lazygit.yml
