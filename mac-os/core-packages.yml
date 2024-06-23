@@ -1,0 +1,44 @@
+- name: Update homebrew
+  community.general.homebrew:
+    update_homebrew: true
+  tags:
+    - mac-core-packages
+
+- name: "Install system packages"
+  community.general.homebrew:
+    name:
+      [
+        "unzip",
+        "git-extras",
+        "xclip",
+        "gawk",
+        "tree",
+        "ripgrep",
+        "tmux",
+        "fortune",
+        "bat",
+        "chafa",
+        "exiftool",
+        "direnv",
+        "stow",
+        "autoconf",
+        "automake",
+        "libtool",
+        "gtk-doc",
+      ]
+    state: present
+  tags:
+    - mac-core-packages
+
+- name: "Install nnn dependecies"
+  community.general.homebrew:
+    name: ["pkg-config", "ncurses", "libreadline-java"]
+  tags:
+    - mac-core-packages
+    - nnn
+
+- name: "install 'useful' packages"
+  community.general.homebrew:
+    name: ["sl", "neofetch"]
+  tags:
+    - mac-core-packages
