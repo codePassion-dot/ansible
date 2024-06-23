@@ -32,7 +32,7 @@
     - import_tasks: common/nvim.yml
     - import_tasks: pop-os/docker.yml
     - import_tasks: pop-os/libinput-gestures.yml
-    - import_tasks: pop-os/lazygit.yml
+    - import_tasks: common/lazygit.yml
     - import_tasks: pop-os/kitty.yml
     - import_tasks: pop-os/pyenv.yml
     - import_tasks: pop-os/nordvpn.yml
