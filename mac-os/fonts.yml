@@ -1,0 +1,14 @@
+- name: Copy .fonts contents
+  copy:
+    src: Library/Fonts
+    dest: "{{ lookup('env', 'HOME') }}"
+    mode: 0644
+  tags:
+    - mac-fonts
+
+- name: erase font cache
+  shell: fc-cache -fv
+  args:
+    executable: /bin/sh
+  tags:
+    - mac-fonts
