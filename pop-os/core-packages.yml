@@ -53,7 +53,6 @@
     name: ["pkg-config", "libncursesw5-dev", "libreadline-dev"]
   tags:
     - core-packages
-    - nnn
 
 - name: "Install java runtime"
   become: true

@@ -26,6 +26,7 @@
     - import_tasks: pop-os/gh.yml
     - import_tasks: pop-os/zsh.yml
     - import_tasks: pop-os/from-source-packages.yml
+    - import_tasks: common/nnn.yml
     - import_tasks: pop-os/node.yml
     - import_tasks: pop-os/npm-packages.yml
     - import_tasks: pop-os/nvim.yml

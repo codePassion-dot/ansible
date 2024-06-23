@@ -1,28 +1,3 @@
-- name: "Clone nnn file manager"
-  git:
-    repo: https://github.com/jarun/nnn.git
-    dest: "{{ third_parties }}/nnn"
-  tags:
-    - nnn
-    - from-source-packages
-
-- name: "Build and install nnn"
-  become: true
-  shell: make PREFIX="{{ lookup('env', 'HOME') }}/.local/stow/nnn" O_NERD=1 install
-  args:
-    chdir: "{{ third_parties }}/nnn"
-  tags:
-    - nnn
-    - from-source-packages
-
-- name: "Stow nnn application"
-  command: stow -v nnn
-  args:
-    chdir: "{{ lookup('env', 'HOME') }}/.local/stow"
-  tags:
-    - nnn
-    - from-source-packages
-
 - name: "Clone redshift repository"
   git:
     repo: https://github.com/jonls/redshift.git

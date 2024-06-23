@@ -35,7 +35,6 @@
     name: ["pkg-config", "ncurses", "libreadline-java"]
   tags:
     - mac-core-packages
-    - nnn
 
 - name: "install 'useful' packages"
   community.general.homebrew:
