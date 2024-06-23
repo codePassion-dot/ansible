@@ -19,6 +19,7 @@
     - import_tasks: pop-os/ssh-work.yml
     - import_tasks: pop-os/gpg.yml
     - import_tasks: pop-os/core-packages.yml
+    - import_tasks: common/oh-my-zsh.yml
     - import_tasks: pop-os/speedtest.yml
     - import_tasks: pop-os/git-delta.yml
     - import_tasks: pop-os/reactotron.yml
