@@ -1,0 +1,8 @@
+- name: Copy .gnupg contents
+  become: true
+  copy:
+      src: .gnupg/
+      dest: "{{ lookup('env', 'HOME') }}/.gnupg/"
+  tags:
+      - gpg 
+

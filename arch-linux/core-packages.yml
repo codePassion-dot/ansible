@@ -1,0 +1,66 @@
+- name: Update pacman cache
+  become: true
+  pacman:
+    update_cache: yes
+  tags:
+    - arch-core-packages
+
+- name: "Install system packages"
+  become: true
+  pacman:
+    name: [
+        "git-extras",
+        "lesspipe",
+        "exa",
+        "xclip",
+        "grim",
+        "slurp",
+        "wl-clipboard",
+        "alsa-utils",
+        "dust",
+        "gawk",
+        "scrcpy",
+        "tree",
+        "ripgrep",
+        "tmux",
+        "bat",
+        "rust",
+        "lua51",
+        "fortune-mod", #this is for chucknorris do not delete
+        "direnv",
+        "tor-launcher",
+        "wget",
+        "rclone",
+        "spotify-launcher",
+        "discord",
+        "openvpn",
+        "jq",
+        "lazygit",
+        "neovim",
+        "ssh",
+        "openssh",
+        "zsh",
+        "speedtest-cli",
+        "git-delta",
+        "github-cli",
+        "pyenv",
+        "kitty",
+        "stow",
+      ]
+    state: present
+  tags:
+    - arch-core-packages
+
+- name: "Install nnn dependecies"
+  become: true
+  pacman:
+    name: ["pkg-conf", "ncurses", "readline"]
+  tags:
+    - arch-core-packages
+
+- name: "install 'useful' packages"
+  become: true
+  apt:
+    name: ["sl", "cowsay"]
+  tags:
+    - arch-core-core-packages
