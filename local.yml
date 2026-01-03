@@ -40,3 +40,4 @@
     - import_tasks: common/fonts.yml
     - import_tasks: pop-os/dotfiles.yml
     - import_tasks: mac-os/core-packages.yml
+    - import_tasks: arch-linux/core-packages.yml

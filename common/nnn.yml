@@ -6,7 +6,6 @@
     - nnn
 
 - name: "Build and install nnn"
-  become: true
   shell: make PREFIX="{{ lookup('env', 'HOME') }}/.local/stow/nnn" O_NERD=1 install
   args:
     chdir: "{{ third_parties }}/nnn"

@@ -7,4 +7,8 @@
     accept_hostkey: yes
     version: master
   tags:
-    - dotfiles
+    - arch-dotfiles
+- name: Stow dotfiles
+  shell: cd $HOME/.dotfiles && ./arch-linux
+  tags:
+    - arch-dotfiles

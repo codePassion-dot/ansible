@@ -5,17 +5,36 @@
   tags:
     - arch-core-packages
 
+- name: "Install yay packages"
+  pacman:
+    name: ["neofetch", "git-extras", "linux-wallpaperengine"]
+    executable: yay
+  tags:
+    - arch-core-packages
+
 - name: "Install system packages"
   become: true
   pacman:
     name: [
-        "git-extras",
         "lesspipe",
+        "dunst",
+        "base-devel",
         "exa",
         "xclip",
+        "hyprland",
         "grim",
+        "greetd",
         "slurp",
         "wl-clipboard",
+        "wofi",
+        "bpytop",
+        "waybar",
+        "gtk4",
+        "python-dbus-next",
+        "noto-fonts-emoji",
+        "vivaldi",
+        "go",
+        "greetd-regreet",
         "alsa-utils",
         "dust",
         "gawk",
@@ -28,7 +47,7 @@
         "lua51",
         "fortune-mod", #this is for chucknorris do not delete
         "direnv",
-        "tor-launcher",
+        "torbrowser-launcher",
         "wget",
         "rclone",
         "spotify-launcher",
@@ -37,7 +56,6 @@
         "jq",
         "lazygit",
         "neovim",
-        "ssh",
         "openssh",
         "zsh",
         "speedtest-cli",
@@ -51,16 +69,31 @@
   tags:
     - arch-core-packages
 
-- name: "Install nnn dependecies"
+- name: "Install sound packages"
   become: true
   pacman:
-    name: ["pkg-conf", "ncurses", "readline"]
+    name:
+      [
+        "pipewire",
+        "wireplumber",
+        "pipewire-pulse",
+        "pipewire-alsa",
+        "pipewire-jack",
+        "pipewire-audio",
+      ]
   tags:
     - arch-core-packages
 
-- name: "install 'useful' packages"
+- name: "Install nnn dependecies"
   become: true
-  apt:
+  pacman:
+    name: ["pkgconf", "ncurses", "readline"]
+  tags:
+    - arch-core-packages
+
+- name: "install useful packages"
+  become: true
+  pacman:
     name: ["sl", "cowsay"]
   tags:
-    - arch-core-core-packages
+    - arch-core-packages
